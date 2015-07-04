@@ -9,15 +9,13 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Mike Kenyon']
   spec.email         = ['mike.kenyon@gmail.com']
 
-  spec.summary       = 'TODO: Write a short summary, because Rubygems requires one.'
-  spec.description   = 'TODO: Write a longer description or delete this line.'
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = 'Parse URLs from YouTube videos or Facebook videos'
+  spec.description   = 'Need to dynamically embed videos from YouTube or Facebook? Extract the video ID easily'
+  spec.homepage      = 'https://github.com/mkenyon/video_url_parser'
   spec.license       = 'MIT'
 
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata['allowed_push_host'] = "https://rubygems.org"
   else
     fail 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
   end
@@ -26,14 +24,14 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
+  spec.required_ruby_version = '>= 1.9.3'
 
   spec.add_development_dependency 'bundler', '~> 1.10'
-  spec.add_development_dependency 'guard'
-  spec.add_development_dependency 'guard-minitest'
+  spec.add_development_dependency 'guard', '~> 2.12'
+  spec.add_development_dependency 'guard-minitest', '~> 2.4'
   spec.add_development_dependency 'minitest', '~> 5.7'
-  spec.add_development_dependency 'minitest-reporters'
-  spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'pry-nav'
-  spec.add_development_dependency 'pry-remote'
+  spec.add_development_dependency 'minitest-reporters', '~> 1.0'
+  spec.add_development_dependency 'pry', '~> 0.10'
+  spec.add_development_dependency 'pry-byebug', '~> 3.1'
   spec.add_development_dependency 'rake', '~> 10.0'
 end
