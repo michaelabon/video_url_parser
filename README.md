@@ -1,6 +1,7 @@
 # VideoURLParser
 
-Parse out information from a web video URL.
+Parse out information from a web video URL. Want information about a YouTube or
+Facebook video?
 
 ## Installation
 
@@ -22,7 +23,10 @@ Or install it yourself as:
 
 ```ruby
 VideoURLParser.parse('http://youtube.com/watch?v=5Qg6G7I4RS4#t=2m32s
-# => { id: '5Qg6G7I4RS4' }
+# => { id: '5Qg6G7I4RS4', provider: :youtube }
+
+VideoURLParser.parse('https://www.facebook.com/McLaren.Racing/videos/vb.12254981412/10153309389781413')
+# => { id: '10153309389781413', provider: :facebook }
 
 VideoURLParser.parse('https://example.com')
 # => nil
@@ -31,16 +35,15 @@ VideoURLParser.parse('https://example.com')
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run
-`rake rspec` to run the tests. You can also run `bin/console` for an
+`rake` to run the tests. You can also run `bin/console` for an
 interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To
-release a new version, update the version number in `version.rb`, and then run
-`bundle exec rake release`, which will create a git tag for the version, push
-git commits and tags, and push the `.gem` file to
-[rubygems.org](https://rubygems.org).
-
 ## Contributing
+
+If you have a false negative, [I would love to hear
+it](https://github.com/mkenyon/video_url_parser/issues/new).
+If you would like support for other video providers,
+please ask as well.
 
 Bug reports and pull requests are welcome on GitHub at
 https://github.com/mkenyon/video_url_parser.
