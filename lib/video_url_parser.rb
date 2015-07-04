@@ -1,12 +1,19 @@
-require "video_url_parser/version"
+require 'video_url_parser/version'
+
+require 'video_url_parser/providers/facebook'
+require 'video_url_parser/providers/youtube'
 
 module VideoURLParser
-  def self.parse(url)
-    match = url.match(/(?:(?:v|embed|be)\/|v=)(?<id>[\w\-]{11})/)
-    return nil unless match
+  PROVIDERS = [
+    VideoURLParser::Providers::YouTube,
+    VideoURLParser::Providers::Facebook
+  ].freeze
 
-    {
-      id: match[:id]
-    }
+  def self.parse(url)
+    PROVIDERS.each do |provider|
+      return provider.parse(url) if provider.supported?(url)
+    end
+
+    nil
   end
 end
