@@ -55,5 +55,13 @@ class TestFacebookProvider < MiniTest::Test
       VideoURLParser.parse('facebook.com/facebook/videos/10153231379946729/'),
       id: '10153231379946729', provider: :facebook
     )
+    assert_equal(
+      VideoURLParser.parse('https://www.facebook.com/video.php?set=vb.100006285636055&v=1585710788315094&type=2&theater'),
+      id: '1585710788315094', provider: :facebook
+    )
+    assert_equal(
+      VideoURLParser.parse('https://www.facebook.com/video.php?v=1585710788315094&set=vb.100006285636055&type=2&theater'),
+      id: '1585710788315094', provider: :facebook
+    )
   end
 end

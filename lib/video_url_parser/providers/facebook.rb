@@ -23,6 +23,13 @@ module VideoURLParser
           (?:vb\.\d{11,}/)?    # Pages' videos start with vb. and their account id number
           (?<id>\d{16,})       # The video id!
         }ix)
+        match = match || url.match(%r{
+          video\.php\?           # Videos served by this php file
+          .*                     # other parameters
+          &?v=                   # the v parameter is the one we want
+        (?<id>\d{16,})           # The video id!
+
+                                   }ix)
         return nil unless match
 
         {
