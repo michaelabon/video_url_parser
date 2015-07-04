@@ -21,7 +21,7 @@ module VideoURLParser
         match = url.match(%r{
           /videos/             # every URL starts with /videos/
           (?:vb\.\d{11,}/)?    # Pages' videos start with vb. and their account id number
-          (?<id>\d{17,})       # The video id!
+          (?<id>\d{16,})       # The video id!
         }ix)
         return nil unless match
 
